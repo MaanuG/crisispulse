@@ -9,3 +9,4 @@ sentence-transformers
 torch
 praw
 scikit-learn
+spacy
