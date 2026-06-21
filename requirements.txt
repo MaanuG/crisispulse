@@ -10,3 +10,4 @@ torch
 praw
 scikit-learn
 spacy
+en-core-web-sm
