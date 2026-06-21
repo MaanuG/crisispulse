@@ -118,8 +118,10 @@ def run_pipeline():
     # 2. GENERATE QUERIES
     # =====================================================
 
-    raw_queries = generate_search_queries(user_input)
-    queries = refine_queries(raw_queries)
+    from reddit_source import extract_event_query
+
+    base_query = extract_event_query(user_input)
+    queries = [base_query]
 
     print("\n🧠 Refined Search Queries:\n")
 
@@ -166,21 +168,12 @@ def run_pipeline():
     print(f"\n✅ Retrieved {len(evidence)} unique evidence items.\n")
 
     # =====================================================
-    # 5. ENRICHMENT PIPELINE
+    # 5. ENRICHMENT PIPELINE (NO HARD FILTERING)
     # =====================================================
 
     evidence = enrich_relevance(user_input, evidence)
 
-    evidence = [
-        e for e in evidence
-        if e.relevance_score >= 0.35
-    ]
-
-    if not evidence:
-        print("\nNo sufficiently relevant evidence found.\n")
-        return
-
-    print(f"✅ Retained {len(evidence)} relevant evidence items.\n")
+    print(f"✅ Evidence after relevance scoring: {len(evidence)} items (no filtering applied)\n")
 
     evidence = enrich_with_stance(user_input, evidence)
     evidence = enrich_ranking(user_input, evidence)
