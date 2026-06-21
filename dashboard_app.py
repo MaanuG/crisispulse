@@ -29,14 +29,22 @@ APP_TITLE = "Crisis Evidence Intelligence Dashboard"
 APP_SUBTITLE = "Search Reddit, measure evidence quality, and explain the claim-level decision in one place."
 
 SAMPLE_PROMPTS = [
-    "The Philippines Earthquake is causing huge casualties",
-    "The wildfire near Riverside is spreading quickly and evacuations are underway",
-    "Flood warnings have been issued for the northern communities",
-    "The water supply has been contaminated in the city",
-    "The major highway is closed after the accident",
-    "Rail service has been suspended across the region",
-    "A severe storm is causing damage and power outages",
-    "There was a shooting downtown and multiple injuries were reported",
+    "misanthropy alert brazil is a real national threat",
+    "Myanmar Sagaing earthquake causes casualties",
+    "Los Angeles County wildfire spreads rapidly",
+    "Texas Hill Country flooding forces evacuations",
+    "Brazil dengue outbreak worsens nationwide",
+    "Sudan cholera outbreak overwhelms hospitals",
+    "Mindanao earthquake damages infrastructure",
+    "Pakistan monsoon flooding displaces residents",
+    "Bangladesh cyclone prompts evacuations",
+    "Congo Mpox outbreak continues spreading",
+    "Ukraine power grid attacks cause outages",
+    "Yellowstone wildfire produces hazardous smoke",
+    "Haiti gang violence displaces families",
+    "Red Sea shipping disruption impacts trade",
+    "California power emergency leaves thousands without power",
+    "New Mexico drought threatens water supplies"
 ]
 
 
@@ -762,7 +770,7 @@ with st.form("analysis_form", clear_on_submit=False):
         "Enter a claim or topic",
         value=st.session_state.input_value,
         height=110,
-        placeholder="Example: The Philippines Earthquake is causing huge casualties",
+        placeholder="Example: misanthropy alert brazil is a real national threat",
     )
     analyze = st.form_submit_button("Analyze claim", width="stretch")
 
